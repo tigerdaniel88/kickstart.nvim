@@ -69,7 +69,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-  -- Detect tabstop and shiftwidth automatically
+  -- Detect tabstop and shiftwidth automaticall
   'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -405,6 +405,7 @@ local on_attach = function(_, bufnr)
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  nmap('gT', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
@@ -426,6 +427,7 @@ local on_attach = function(_, bufnr)
   --   vim.lsp.buf.format()
   -- end, { desc = 'Format current buffer with LSP' })
   modemap({'n', 'v'}, 'gf', vim.lsp.buf.format, 'Format')
+  -- NOTE:  add a .clang-format file in home directory to configure formatting style.
 
   nmap('<leader>rf', ':ClangdSwitchSourceHeader<CR>', 'Toggle between source/header')
 
